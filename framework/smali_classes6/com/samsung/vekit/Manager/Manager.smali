@@ -1,0 +1,387 @@
+.class public Lcom/samsung/vekit/Manager/Manager;
+.super Lcom/samsung/vekit/Common/Object/Element;
+.source "Manager.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<T:",
+        "Ljava/lang/Object;",
+        ">",
+        "Lcom/samsung/vekit/Common/Object/Element;"
+    }
+.end annotation
+
+
+# instance fields
+.field protected index:I
+
+.field protected managerType:Lcom/samsung/vekit/Common/Type/ManagerType;
+
+.field protected map:Ljava/util/HashMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/HashMap<",
+            "Ljava/lang/Integer;",
+            "TT;>;"
+        }
+    .end annotation
+.end field
+
+
+# direct methods
+.method protected constructor <init>(Lcom/samsung/vekit/Common/VEContext;Lcom/samsung/vekit/Common/Type/ManagerType;)V
+    .registers 6
+    .param p1, "context"    # Lcom/samsung/vekit/Common/VEContext;
+    .param p2, "type"    # Lcom/samsung/vekit/Common/Type/ManagerType;
+
+    .line 20
+    .local p0, "this":Lcom/samsung/vekit/Manager/Manager;, "Lcom/samsung/vekit/Manager/Manager<TT;>;"
+    sget-object v0, Lcom/samsung/vekit/Common/Type/ElementType;->MANAGER:Lcom/samsung/vekit/Common/Type/ElementType;
+
+    const-string v1, "Manager"
+
+    const/4 v2, 0x0
+
+    invoke-direct {p0, p1, v0, v2, v1}, Lcom/samsung/vekit/Common/Object/Element;-><init>(Lcom/samsung/vekit/Common/VEContext;Lcom/samsung/vekit/Common/Type/ElementType;ILjava/lang/String;)V
+
+    .line 15
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/vekit/Manager/Manager;->map:Ljava/util/HashMap;
+
+    .line 21
+    iput-object p2, p0, Lcom/samsung/vekit/Manager/Manager;->managerType:Lcom/samsung/vekit/Common/Type/ManagerType;
+
+    .line 22
+    iput v2, p0, Lcom/samsung/vekit/Manager/Manager;->index:I
+
+    .line 23
+    return-void
+.end method
+
+.method private getTargetElementType(Lcom/samsung/vekit/Common/Type/ManagerType;)Lcom/samsung/vekit/Common/Type/ElementType;
+    .registers 5
+    .param p1, "managerType"    # Lcom/samsung/vekit/Common/Type/ManagerType;
+
+    .line 64
+    .local p0, "this":Lcom/samsung/vekit/Manager/Manager;, "Lcom/samsung/vekit/Manager/Manager<TT;>;"
+    sget-object v0, Lcom/samsung/vekit/Manager/Manager$1;->$SwitchMap$com$samsung$vekit$Common$Type$ManagerType:[I
+
+    invoke-virtual {p1}, Lcom/samsung/vekit/Common/Type/ManagerType;->ordinal()I
+
+    move-result v1
+
+    aget v0, v0, v1
+
+    packed-switch v0, :pswitch_data_34
+
+    .line 77
+    iget-object v0, p0, Lcom/samsung/vekit/Manager/Manager;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "unexpected manager type = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 78
+    const/4 v0, 0x0
+
+    return-object v0
+
+    .line 75
+    :pswitch_25
+    sget-object v0, Lcom/samsung/vekit/Common/Type/ElementType;->FILTER:Lcom/samsung/vekit/Common/Type/ElementType;
+
+    return-object v0
+
+    .line 73
+    :pswitch_28
+    sget-object v0, Lcom/samsung/vekit/Common/Type/ElementType;->ANIMATION:Lcom/samsung/vekit/Common/Type/ElementType;
+
+    return-object v0
+
+    .line 71
+    :pswitch_2b
+    sget-object v0, Lcom/samsung/vekit/Common/Type/ElementType;->LAYER:Lcom/samsung/vekit/Common/Type/ElementType;
+
+    return-object v0
+
+    .line 69
+    :pswitch_2e
+    sget-object v0, Lcom/samsung/vekit/Common/Type/ElementType;->ITEM:Lcom/samsung/vekit/Common/Type/ElementType;
+
+    return-object v0
+
+    .line 67
+    :pswitch_31
+    sget-object v0, Lcom/samsung/vekit/Common/Type/ElementType;->CONTENT:Lcom/samsung/vekit/Common/Type/ElementType;
+
+    return-object v0
+
+    :pswitch_data_34
+    .packed-switch 0x1
+        :pswitch_31
+        :pswitch_2e
+        :pswitch_2b
+        :pswitch_28
+        :pswitch_25
+    .end packed-switch
+.end method
+
+
+# virtual methods
+.method public add(Ljava/lang/Object;)V
+    .registers 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TT;)V"
+        }
+    .end annotation
+
+    .line 36
+    .local p0, "this":Lcom/samsung/vekit/Manager/Manager;, "Lcom/samsung/vekit/Manager/Manager<TT;>;"
+    .local p1, "data":Ljava/lang/Object;, "TT;"
+    iget-object v0, p0, Lcom/samsung/vekit/Manager/Manager;->map:Ljava/util/HashMap;
+
+    move-object v1, p1
+
+    check-cast v1, Lcom/samsung/vekit/Common/Object/Element;
+
+    invoke-virtual {v1}, Lcom/samsung/vekit/Common/Object/Element;->getId()I
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1, p1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 37
+    invoke-static {}, Lcom/samsung/vekit/External/NativeInterface;->getInstance()Lcom/samsung/vekit/External/NativeInterface;
+
+    move-result-object v0
+
+    move-object v1, p1
+
+    check-cast v1, Lcom/samsung/vekit/Common/Object/Element;
+
+    invoke-virtual {v0, v1}, Lcom/samsung/vekit/External/NativeInterface;->create(Lcom/samsung/vekit/Common/Object/Element;)V
+
+    .line 38
+    return-void
+.end method
+
+.method protected generateUniqueId()I
+    .registers 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
+    .line 26
+    .local p0, "this":Lcom/samsung/vekit/Manager/Manager;, "Lcom/samsung/vekit/Manager/Manager<TT;>;"
+    iget-object v0, p0, Lcom/samsung/vekit/Manager/Manager;->map:Ljava/util/HashMap;
+
+    invoke-virtual {v0}, Ljava/util/HashMap;->size()I
+
+    move-result v0
+
+    const v1, 0x7ffffffe
+
+    if-ge v0, v1, :cond_29
+
+    .line 29
+    :goto_b
+    iget-object v0, p0, Lcom/samsung/vekit/Manager/Manager;->map:Ljava/util/HashMap;
+
+    iget v1, p0, Lcom/samsung/vekit/Manager/Manager;->index:I
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_26
+
+    .line 30
+    iget v0, p0, Lcom/samsung/vekit/Manager/Manager;->index:I
+
+    add-int/lit8 v0, v0, 0x1
+
+    iput v0, p0, Lcom/samsung/vekit/Manager/Manager;->index:I
+
+    const v1, 0x7fffffff
+
+    rem-int/2addr v0, v1
+
+    iput v0, p0, Lcom/samsung/vekit/Manager/Manager;->index:I
+
+    goto :goto_b
+
+    .line 32
+    :cond_26
+    iget v0, p0, Lcom/samsung/vekit/Manager/Manager;->index:I
+
+    return v0
+
+    .line 27
+    :cond_29
+    new-instance v0, Ljava/lang/Exception;
+
+    const-string v1, "Map is full"
+
+    invoke-direct {v0, v1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
+.method public get(I)Ljava/lang/Object;
+    .registers 4
+    .param p1, "id"    # I
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I)TT;"
+        }
+    .end annotation
+
+    .line 41
+    .local p0, "this":Lcom/samsung/vekit/Manager/Manager;, "Lcom/samsung/vekit/Manager/Manager<TT;>;"
+    iget-object v0, p0, Lcom/samsung/vekit/Manager/Manager;->map:Ljava/util/HashMap;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getMap()Ljava/util/Map;
+    .registers 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Map<",
+            "Ljava/lang/Integer;",
+            "TT;>;"
+        }
+    .end annotation
+
+    .line 45
+    .local p0, "this":Lcom/samsung/vekit/Manager/Manager;, "Lcom/samsung/vekit/Manager/Manager<TT;>;"
+    iget-object v0, p0, Lcom/samsung/vekit/Manager/Manager;->map:Ljava/util/HashMap;
+
+    invoke-static {v0}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public remove(I)V
+    .registers 6
+    .param p1, "id"    # I
+
+    .line 49
+    .local p0, "this":Lcom/samsung/vekit/Manager/Manager;, "Lcom/samsung/vekit/Manager/Manager<TT;>;"
+    iget-object v0, p0, Lcom/samsung/vekit/Manager/Manager;->managerType:Lcom/samsung/vekit/Common/Type/ManagerType;
+
+    invoke-direct {p0, v0}, Lcom/samsung/vekit/Manager/Manager;->getTargetElementType(Lcom/samsung/vekit/Common/Type/ManagerType;)Lcom/samsung/vekit/Common/Type/ElementType;
+
+    move-result-object v0
+
+    .line 50
+    .local v0, "targetElementType":Lcom/samsung/vekit/Common/Type/ElementType;
+    if-nez v0, :cond_33
+
+    .line 52
+    iget-object v1, p0, Lcom/samsung/vekit/Manager/Manager;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Fail to remove item["
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, "] with managerType["
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/samsung/vekit/Manager/Manager;->managerType:Lcom/samsung/vekit/Common/Type/ManagerType;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, "]"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 53
+    return-void
+
+    .line 56
+    :cond_33
+    iget-object v1, p0, Lcom/samsung/vekit/Manager/Manager;->map:Ljava/util/HashMap;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 57
+    invoke-static {}, Lcom/samsung/vekit/External/NativeInterface;->getInstance()Lcom/samsung/vekit/External/NativeInterface;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0, p1}, Lcom/samsung/vekit/External/NativeInterface;->remove(Lcom/samsung/vekit/Common/Type/ElementType;I)V
+
+    .line 61
+    return-void
+.end method

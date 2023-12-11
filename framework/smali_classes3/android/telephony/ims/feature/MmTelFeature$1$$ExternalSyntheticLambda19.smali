@@ -1,0 +1,40 @@
+.class public final synthetic Landroid/telephony/ims/feature/MmTelFeature$1$$ExternalSyntheticLambda19;
+.super Ljava/lang/Object;
+.source "D8$$SyntheticClass"
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# instance fields
+.field public final synthetic f$0:Landroid/telephony/ims/feature/MmTelFeature$1;
+
+.field public final synthetic f$1:I
+
+
+# direct methods
+.method public synthetic constructor <init>(Landroid/telephony/ims/feature/MmTelFeature$1;I)V
+    .registers 3
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Landroid/telephony/ims/feature/MmTelFeature$1$$ExternalSyntheticLambda19;->f$0:Landroid/telephony/ims/feature/MmTelFeature$1;
+
+    iput p2, p0, Landroid/telephony/ims/feature/MmTelFeature$1$$ExternalSyntheticLambda19;->f$1:I
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final run()V
+    .registers 3
+
+    iget-object v0, p0, Landroid/telephony/ims/feature/MmTelFeature$1$$ExternalSyntheticLambda19;->f$0:Landroid/telephony/ims/feature/MmTelFeature$1;
+
+    iget v1, p0, Landroid/telephony/ims/feature/MmTelFeature$1$$ExternalSyntheticLambda19;->f$1:I
+
+    invoke-static {v0, v1}, Landroid/telephony/ims/feature/MmTelFeature$1;->$r8$lambda$HbPWpfNBp5o5CB-ul7h8eI2Ld8Y(Landroid/telephony/ims/feature/MmTelFeature$1;I)V
+
+    return-void
+.end method
